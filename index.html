@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruggeri Pizzería - Proyecto Final</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+         HEADER
+         ========================================================================== -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="Imagenes/Gemini_Generated_Image_zhzcqizhzcqizhzc-Photoroom.png" alt="Ruggeri Pizzería" class="logo-img">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#menu">Pizzas</a></li>
+                    <li><a href="#builder">Arma tu pizza</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==========================================================================
+             SECCIÓN 1: HOME / MENÚ
+             ========================================================================== -->
+        <section id="menu">
+            <div class="hero"></div>
+            
+            <div class="container menu-section">
+                <!-- Filtros -->
+                <div class="filters">
+                    <button class="filter-btn">Pizzas normales</button>
+                    <button class="filter-btn">Arma tu pizza!</button>
+                    <button class="filter-btn active">Pizzas ★</button>
+                    <button class="filter-btn">Bebidas</button>
+                    <button class="filter-btn">Postres</button>
+                </div>
+
+                <!-- Título de sección -->
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>Nuestras Pizzas</h2>
+                        <p>Masa madre fermentada 48h, hornos de leña.</p>
+                    </div>
+                    <a href="#" style="font-size: 0.875rem; font-weight: 600; text-decoration: underline;">Ver todo</a>
+                </div>
+
+                <!-- Grilla de Pizzas -->
+                <div class="pizza-grid">
+                    <!-- Card 1 -->
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&auto=format&fit=crop&q=60" alt="Margherita Clásica" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Margherita Clásica</h3>
+                            <div class="price-tags">
+                                <span class="price-tag">Mediana $18.50</span>
+                                <span class="price-tag green">Pequeña $12.90</span>
+                                <span class="price-tag">Grande $24.00</span>
+                            </div>
+                            <p class="pizza-desc">Tomate San Marzano, mozzarella de búfala, albahaca fresca.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop&q=60" alt="Quattro Formaggi" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Quattro Formaggi</h3>
+                            <div class="price-tags">
+                                <span class="price-tag">Mediana $18.50</span>
+                                <span class="price-tag green">Pequeña $12.90</span>
+                                <span class="price-tag">Grande $24.00</span>
+                            </div>
+                            <p class="pizza-desc">Mozzarella, parmesano, gorgonzola y ricotta.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&auto=format&fit=crop&q=60" alt="Prosciutto e Funghi" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Prosciutto e Funghi</h3>
+                            <div class="price-tags">
+                                <span class="price-tag">Mediana $18.50</span>
+                                <span class="price-tag green">Pequeña $12.90</span>
+                                <span class="price-tag">Grande $24.00</span>
+                            </div>
+                            <p class="pizza-desc">Jamón serrano, champiñones, cebolla caramelizada.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=500&auto=format&fit=crop&q=60" alt="Carnes" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Carnes</h3>
+                            <div class="price-tags">
+                                <span class="price-tag">Mediana $18.50</span>
+                                <span class="price-tag green">Pequeña $12.90</span>
+                                <span class="price-tag">Grande $24.00</span>
+                            </div>
+                            <p class="pizza-desc">Pepperoni, salchicha, panceta y jamón.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60" alt="Hawaiana" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Hawaiana</h3>
+                            <div class="price-tags">
+                                <span class="price-tag">Mediana $18.50</span>
+                                <span class="price-tag green">Pequeña $12.90</span>
+                                <span class="price-tag">Grande $24.00</span>
+                            </div>
+                            <p class="pizza-desc">Jamón serrano y piña caramelizada.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1511689660979-10c0c9c8114e?w=500&auto=format&fit=crop&q=60" alt="Vegetariana" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Vegetariana</h3>
+                            <div class="price-tags">
+                                <span class="price-tag">Mediana $18.50</span>
+                                <span class="price-tag green">Pequeña $12.90</span>
+                                <span class="price-tag">Grande $24.00</span>
+                            </div>
+                            <p class="pizza-desc">Berenjena, calabacín, pimiento rojo y champiñones.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECCIÓN 3: PAGAR / COMPROBANTE
+             ========================================================================== -->
+        <section id="payment" class="payment-section">
+            <div class="container">
+                <div class="payment-header">
+                    <p style="color: var(--color-secondary); font-weight: 600; font-size: 0.875rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-lock"></i> PAGO SEGURO</p>
+                    <h2>Paga y subí tu comprobante de pago</h2>
+                    <p>Realizá la transferencia con los datos de Ruggeri. Cuando subas el comprobante, confirmamos tu pedido.</p>
+                </div>
+
+                <div class="payment-layout">
+                    <!-- Tarjeta de Recibo -->
+                    <div class="receipt-card">
+                        <div class="receipt-header">
+                            <h3>Ruggeri Pizzeri</h3>
+                            <i class="fa-solid fa-pizza-slice" style="color: var(--color-primary); font-size: 1.5rem;"></i>
+                        </div>
+                        
+                        <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 1.5rem; display: flex; justify-content: space-between;">
+                            <span>PEDIDO #2345</span>
+                            <span>Lunes, 20 de Enero 2025 - 19:42</span>
+                        </div>
+
+                        <div class="receipt-items">
+                            <div class="receipt-item">
+                                <span>1x Pizza Prosciutto e Funghi (Mediana)</span>
+                                <span>$18.500</span>
+                            </div>
+                            <div class="receipt-item">
+                                <span>2x Margherita Clásica (Mediana)</span>
+                                <span>$37.000</span>
+                            </div>
+                            <div class="receipt-item">
+                                <span>1x Quattro Formaggi (Grande)</span>
+                                <span>$24.000</span>
+                            </div>
+                            <div class="receipt-item">
+                                <span>3x Coca-Cola 500ml</span>
+                                <span>$9.000</span>
+                            </div>
+                            <div class="receipt-item">
+                                <span>1x Tiramisú artesanal</span>
+                                <span>$8.500</span>
+                            </div>
+                        </div>
+
+                        <div class="receipt-totals">
+                            <div class="receipt-row">
+                                <span>Subtotal</span>
+                                <span>$97.000</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span>Costo de envío</span>
+                                <span>$1.500</span>
+                            </div>
+                            <div class="receipt-row total">
+                                <span>Total a pagar</span>
+                                <span>$97.000</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;">Pagar Pedido</button>
+                    </div>
+
+                    <!-- Área de Subida de Comprobante -->
+                    <div class="upload-area">
+                        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                        <h4 style="margin-bottom: 0.5rem;">Subí tu comprobante</h4>
+                        <p>Aceptamos JPG, PNG o PDF de hasta 10 MB.</p>
+                        <div style="border: 1px dashed var(--color-border); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; background: #F9F9F9;">
+                            <span style="font-size: 0.875rem;">Arrastrá el archivo aquí</span><br>
+                            <span style="font-size: 0.75rem; color: var(--color-text-muted);">o</span><br>
+                            <button class="btn btn-outline" style="margin-top: 0.5rem; font-size: 0.75rem; padding: 0.5rem 1rem;">Seleccionar archivo</button>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; font-size: 0.75rem; color: var(--color-secondary); margin-bottom: 1.5rem;">
+                            <i class="fa-solid fa-circle-check"></i> comprobante-ruggeri.pdf
+                        </div>
+                        <button class="btn btn-secondary" style="width: 100%;"><i class="fa-solid fa-circle-check"></i> Confirmar pago</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Ruggeri</h3>
+                    <p>Pizzas artesanales hechas con amor y respeto por la tradición. Ingredientes frescos y masa madre fermentada 48h.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li>+58 212 123-4567</li>
+                        <li>hola@ruggeri.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ubicación</h4>
+                    <ul>
+                        <li>Av Andres Bello, Los Palos Grandes </li>
+                        <li>Lunes a Domingo: 12:00 - 23:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ruggeri Pizzería. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
