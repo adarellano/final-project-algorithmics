@@ -157,6 +157,28 @@ nav a:hover {
     color: var(--color-primary);
 }
 
+.cart-link {
+    position: relative;
+    display: inline-flex;
+    font-size: 1.1rem;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* ==========================================================================
    4. SECCIÓN MENÚ (Home)
    ========================================================================== */
@@ -746,6 +768,289 @@ nav a:hover {
     font-size: 0.875rem;
     color: var(--color-text-muted);
     margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   6b. SECCIÓN PROMOCIONES
+   ========================================================================== */
+.promo-page {
+    padding: 4rem 0;
+    background-color: var(--color-bg);
+}
+
+.promo-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--color-badge-bg);
+    border: 1.5px dashed var(--color-secondary);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.promo-eyebrow {
+    display: inline-block;
+    background-color: white;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.promo-hero h1 {
+    font-family: var(--font-headings);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.promo-hero p {
+    color: var(--color-text-muted);
+    max-width: 420px;
+}
+
+.promo-hero-card {
+    flex-shrink: 0;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    transform: rotate(3deg);
+}
+
+.promo-hero-card-icon {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.promo-hero-card p {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.promo-active-indicator {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.promo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.promo-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    align-items: stretch;
+}
+
+.promo-card-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.promo-card-content h3 {
+    font-family: var(--font-headings);
+    font-size: 1.6rem;
+    line-height: 1.25;
+}
+
+.promo-tag {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.promo-tag--dark {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--color-text-dark);
+}
+
+.promo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: white;
+    color: var(--color-text-dark);
+    border-radius: 9999px;
+    padding: 0.7rem 1.4rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.promo-btn--dark {
+    background-color: var(--color-text-dark);
+    color: white;
+}
+
+.promo-card-media {
+    position: relative;
+}
+
+.promo-img-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.promo-badge-circle {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background-color: #FBBF24;
+    color: var(--color-text-dark);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.7rem;
+    font-weight: 800;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.promo-tag-on-media {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    background-color: white;
+    border-radius: 9999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Colores por tarjeta */
+.promo-card--brown {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.promo-card--green {
+    background-color: #D9F99D;
+    color: var(--color-text-dark);
+}
+
+.promo-card--yellow {
+    background-color: #FDE68A;
+    color: var(--color-text-dark);
+}
+
+.promo-card--reverse {
+    direction: rtl;
+}
+
+.promo-card--reverse > * {
+    direction: ltr;
+}
+
+/* Tarjeta de fidelidad (promo 3) */
+.loyalty-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 320px;
+}
+
+.loyalty-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.2rem;
+}
+
+.loyalty-card-header .receipt-logo {
+    font-size: 1.2rem;
+}
+
+.loyalty-badge {
+    background-color: #FBBF24;
+    color: var(--color-text-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+}
+
+.loyalty-card-sub {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+}
+
+.loyalty-stamps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+}
+
+.stamp {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1.5px dashed var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.stamp--filled {
+    background-color: var(--color-primary);
+    border-style: solid;
+    border-color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+    .promo-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .promo-hero-card {
+        transform: none;
+    }
+    .promo-card {
+        grid-template-columns: 1fr;
+    }
+    .promo-card--reverse {
+        direction: ltr;
+    }
+    .promo-card-content {
+        padding: 2rem;
+    }
 }
 
 /* ==========================================================================

@@ -26,8 +26,14 @@
             <nav>
                 <ul>
                     <li><a href="#menu">Menú</a></li>
-                    <li><a href="#menu">Pizzas</a></li>
                     <li><a href="#builder">Arma tu pizza</a></li>
+                    <li><a href="#promociones">Promociones</a></li>
+                    <li>
+                        <a href="#carrito" class="cart-link" aria-label="Ver carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="cart-badge">1</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -336,7 +342,7 @@
 
                     <!-- Columna derecha: la factura, sola -->
                     <aside class="builder-preview">
-                        <article class="receipt">
+                        <article class="receipt" id="carrito">
                             <button class="receipt-close" aria-label="Cerrar">✕</button>
 
                             <div class="receipt-header">
@@ -477,6 +483,98 @@
                 </div>
             </div>
         </section>
+
+        <!-- ==========================================================================
+             SECCIÓN 4: PROMOCIONES
+             ========================================================================== -->
+        <section id="promociones" class="promo-page">
+            <div class="container">
+
+                <div class="promo-hero">
+                    <div>
+                        <span class="promo-eyebrow">🍕 Para comer más rico</span>
+                        <h1>Promos que dan hambre.</h1>
+                        <p>Tres excusas para pedir tu Ruggeri favorita, compartir la mesa y volver por otra porción.</p>
+                    </div>
+                    <div class="promo-hero-card">
+                        <span class="promo-hero-card-icon">🍕</span>
+                        <p>Masa madre · 48h<br>Horno de leña</p>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>Elegí tu próxima excusa</h2>
+                        <p>Beneficios simples, para disfrutar sin vueltas.</p>
+                    </div>
+                    <span class="promo-active-indicator">● 3 promociones activas</span>
+                </div>
+
+                <div class="promo-list">
+
+                    <!-- Promo 1 -->
+                    <article class="promo-card promo-card--brown">
+                        <div class="promo-card-content">
+                            <span class="promo-tag">Lunes • Miércoles</span>
+                            <h3>Lunes y miércoles: pizzas al 50%</h3>
+                            <p>Mitad de precio, doble alegría. Elegí cualquier pizza de nuestra carta y hacé más linda la semana.</p>
+                            <a href="#menu" class="promo-btn">Ver pizzas →</a>
+                        </div>
+                        <div class="promo-card-media">
+                            <div class="promo-img-placeholder">🍕</div>
+                            <span class="promo-badge-circle">50%<br>OFF</span>
+                        </div>
+                    </article>
+
+                    <!-- Promo 2 -->
+                    <article class="promo-card promo-card--green promo-card--reverse">
+                        <div class="promo-card-media">
+                            <div class="promo-img-placeholder">🍕🍕</div>
+                            <span class="promo-tag-on-media">Dos son mejor que una</span>
+                        </div>
+                        <div class="promo-card-content">
+                            <span class="promo-tag promo-tag--dark">Solo los martes</span>
+                            <h3>Martes 2x1</h3>
+                            <p>Pedí dos pizzas del mismo tamaño y pagá una. La segunda puede ser tan distinta como tu antojo.</p>
+                            <a href="#menu" class="promo-btn promo-btn--dark">Elegir dos pizzas →</a>
+                        </div>
+                    </article>
+
+                    <!-- Promo 3 -->
+                    <article class="promo-card promo-card--yellow">
+                        <div class="promo-card-content">
+                            <span class="promo-tag">Club Ruggeri</span>
+                            <h3>Comprá 10 veces con nosotros y recibí un cupón de $5 de descuento</h3>
+                            <p>Cada pedido suma un sello. Cuando completás la tarjeta, te mandamos el cupón para tu próxima pizza.</p>
+                            <a href="#" class="promo-btn">Sumarme al club →</a>
+                        </div>
+                        <div class="promo-card-media">
+                            <div class="loyalty-card">
+                                <div class="loyalty-card-header">
+                                    <span class="receipt-logo">Ruggeri</span>
+                                    <span class="loyalty-badge">$5 OFF</span>
+                                </div>
+                                <p class="loyalty-card-sub">Club de la pizza</p>
+                                <div class="loyalty-stamps">
+                                    <span class="stamp stamp--filled">🍕</span>
+                                    <span class="stamp stamp--filled">🍕</span>
+                                    <span class="stamp stamp--filled">🍕</span>
+                                    <span class="stamp stamp--filled">🍕</span>
+                                    <span class="stamp stamp--filled">🍕</span>
+                                    <span class="stamp stamp--filled">🍕</span>
+                                    <span class="stamp stamp--filled">🍕</span>
+                                    <span class="stamp">8</span>
+                                    <span class="stamp">9</span>
+                                    <span class="stamp">10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- ==========================================================================
