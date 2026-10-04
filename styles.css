@@ -35,6 +35,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -110,11 +114,11 @@ button {
 }
 
 /* ==========================================================================
-   3. HEADER (Navegación)
+   3. HEADER (Navegación) - ¡CORREGIDO!
    ========================================================================== */
 header {
     background-color: var(--color-bg);
-    padding: 1rem 0;
+    padding: 0.8rem 0; /* Un padding más equilibrado */
     position: sticky;
     top: 0;
     z-index: 50;
@@ -125,20 +129,20 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* Eliminamos height: 30px y width: auto de aquí, causaban el error */
 }
 
 .logo {
-    font-family: var(--font-headings);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-dark);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
 }
 
-.logo i {
-    color: var(--color-primary);
+/* NUEVA REGLA: Controla el tamaño de la imagen del logo */
+.logo-img {
+    height: 45px; /* Altura ideal para el logo */
+    width: auto;  /* Mantiene la proporción sin deformar */
+    max-width: 200px; /* Límite para que no sea demasiado ancho */
+    object-fit: contain;
 }
 
 nav ul {
@@ -212,6 +216,18 @@ nav a:hover {
     font-weight: 500;
     background-color: white;
     color: var(--color-text-dark);
+    /* 👇 Estas propiedades aseguran que el enlace se vea y comporte como un botón */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none; /* Elimina el subrayado */
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 
 .filter-btn.active {
@@ -265,7 +281,6 @@ nav a:hover {
     object-fit: cover;
 }
 
-/* Placeholder con emoji para bebidas/postres mientras no haya foto real */
 .pizza-img--placeholder {
     display: flex;
     align-items: center;
@@ -558,9 +573,6 @@ nav a:hover {
     cursor: pointer;
 }
 
-/* Nota: "receipt-header" y "receipt-totals" ya existen en la SECCIÓN 6 (pago
-   de tu compañero), con otro layout. Los aislamos con .receipt como padre para
-   que no se mezclen las reglas de un componente con las del otro. */
 .receipt .receipt-header {
     margin-bottom: 0.6rem;
 }
