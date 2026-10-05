@@ -124,11 +124,11 @@ button {
 }
 
 /* ==========================================================================
-   3. HEADER (Navegación) - ¡CORREGIDO!
+   3. HEADER (Navegación)
    ========================================================================== */
 header {
     background-color: var(--color-bg);
-    padding: 0.8rem 0; /* Un padding más equilibrado */
+    padding: 0.8rem 0;
     position: sticky;
     top: 0;
     z-index: 50;
@@ -139,7 +139,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Eliminamos height: 30px y width: auto de aquí, causaban el error */
 }
 
 .logo {
@@ -147,11 +146,10 @@ header {
     align-items: center;
 }
 
-/* NUEVA REGLA: Controla el tamaño de la imagen del logo */
 .logo-img {
-    height: 45px; /* Altura ideal para el logo */
-    width: auto;  /* Mantiene la proporción sin deformar */
-    max-width: 200px; /* Límite para que no sea demasiado ancho */
+    height: 45px;
+    width: auto;
+    max-width: 200px;
     object-fit: contain;
 }
 
@@ -210,7 +208,6 @@ nav a.activo {
     overflow: hidden;
 }
 
-/* Carrusel de videos del banner, en blanco y negro */
 .hero-video {
     position: absolute;
     top: 0;
@@ -267,12 +264,11 @@ nav a.activo {
     font-weight: 500;
     background-color: white;
     color: var(--color-text-dark);
-    /* 👇 Estas propiedades aseguran que el enlace se vea y comporte como un botón */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    text-decoration: none; /* Elimina el subrayado */
+    text-decoration: none;
     transition: var(--transition);
 }
 
@@ -288,7 +284,7 @@ nav a.activo {
 }
 
 .section-header {
-    scroll-margin-top: 90px; /* para que el header fijo no tape el título */
+    scroll-margin-top: 90px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -368,6 +364,8 @@ nav a.activo {
     border-radius: 9999px;
     font-size: 0.75rem;
     font-weight: 600;
+    border: none;
+    cursor: pointer;
 }
 
 .price-tag.green {
@@ -690,31 +688,51 @@ nav a.activo {
     border-radius: 9999px;
 }
 
+/* --- CORRECCIÓN PARA LA TABLA DE LA FACTURA (ARMA TU PIZZA) --- */
 .receipt-table {
     width: 100%;
+    table-layout: fixed; /* Evita que el texto desborde las celdas */
     border-collapse: collapse;
     margin-bottom: 1rem;
 }
 
-.receipt-table th {
-    text-align: left;
-    font-size: 0.7rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-border);
-}
-
+.receipt-table th,
 .receipt-table td {
-    font-size: 0.85rem;
+    vertical-align: top; /* Alinea al tope si el texto tiene varias líneas */
     padding: 0.5rem 0;
     border-bottom: 1px dashed var(--color-border);
 }
 
-.receipt-table td.align-right,
-.receipt-table th.align-right {
+.receipt-table th:nth-child(1),
+.receipt-table td:nth-child(1) {
+    width: 15%; /* Ancho para la cantidad */
+}
+
+.receipt-table th:nth-child(2),
+.receipt-table td:nth-child(2) {
+    width: 50%; /* Ancho para el producto */
+    word-break: break-word; /* Rompe palabras muy largas */
+}
+
+.receipt-table th:nth-child(3),
+.receipt-table td:nth-child(3) {
+    width: 35%; /* Ancho para el precio */
     text-align: right;
+}
+
+/* El contenedor interno para alinear el precio y el botón X */
+.celda-precio {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.5rem;
+    white-space: nowrap; /* Evita que el precio se rompa */
+    width: 100%; /* Ocupa todo el ancho de la celda */
+}
+
+.celda-precio .boton_quitar {
+    flex-shrink: 0; /* Evita que el botón se aplaste o se mueva */
+    margin-top: 2px; /* Alinea un poco con el texto */
 }
 
 .receipt .receipt-totals {
@@ -815,10 +833,30 @@ nav a.activo {
     margin-bottom: 1.5rem;
 }
 
+/* --- CORRECCIÓN PARA LA LISTA DE LA FACTURA (PAGO) --- */
 .receipt-item {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
     font-size: 0.875rem;
+}
+
+.receipt-item > span:first-child {
+    flex: 1;
+    word-break: break-word;
+}
+
+.receipt-item > span:last-child {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    white-space: nowrap;
+    flex-shrink: 0; /* Evita que el precio y la X se aplasten */
+}
+
+.receipt-item .boton_quitar {
+    margin-top: 2px;
 }
 
 .receipt-totals {
@@ -983,7 +1021,6 @@ nav a.activo {
     justify-content: center;
 }
 
-/* El texto va por encima de los adornos de fondo */
 .promo-card-content > * {
     position: relative;
     z-index: 1;
@@ -1032,7 +1069,6 @@ nav a.activo {
     color: white;
 }
 
-/* Botón a la izquierda y la letra pequeña a la derecha */
 .promo-card-footer {
     width: 100%;
     display: flex;
@@ -1087,7 +1123,6 @@ nav a.activo {
     background-color: var(--color-secondary-hover);
 }
 
-/* Lado de la foto */
 .promo-card-media {
     position: relative;
     display: flex;
@@ -1105,7 +1140,6 @@ nav a.activo {
     left: 0;
 }
 
-/* Promo 2: dos fotos, una al lado de la otra */
 .promo-card-media--doble .promo-img {
     width: 50%;
 }
@@ -1149,13 +1183,11 @@ nav a.activo {
     transform: rotate(-6deg);
 }
 
-/* Colores por tarjeta */
 .promo-card--brown {
     background-color: #7A3B1E;
     color: white;
 }
 
-/* Adornos de la tarjeta marrón: un aro abajo y una franja amarilla arriba */
 .promo-card--brown .promo-card-content::before {
     content: '';
     position: absolute;
@@ -1190,7 +1222,6 @@ nav a.activo {
     border-left: 14px solid #E8502A;
 }
 
-/* Tarjeta de fidelidad (promo 3) */
 .promo-card-media--tarjeta {
     align-items: center;
     justify-content: center;
@@ -1266,6 +1297,13 @@ nav a.activo {
     font-size: 0.65rem;
     font-weight: 600;
     text-align: center;
+}
+
+/* Promoción deshabilitada (blanco y negro) */
+.promo-card.promo-disabled {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    pointer-events: none; /* Evita que se pueda hacer clic en los botones */
 }
 
 @media (max-width: 900px) {
@@ -1381,7 +1419,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* El nav bar es la única forma de cambiar de vista: en el teléfono baja a otra línea */
     .header-content {
         flex-wrap: wrap;
         justify-content: center;
@@ -1431,12 +1468,16 @@ footer {
 .boton_quitar {
     width: 20px;
     height: 20px;
-    margin-left: 0.5rem;
     border-radius: 50%;
     border: 1px solid var(--color-border);
     color: var(--color-text-muted);
     font-size: 0.6rem;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Evita que el botón se aplaste */
+    margin-top: 2px; /* Alinea un poco con el texto */
 }
 
 .boton_quitar:hover {
