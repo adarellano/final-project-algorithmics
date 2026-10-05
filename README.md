@@ -58,8 +58,10 @@ El código está organizado de la siguiente manera para mantener un código limp
 
 ```text
 📦 ruggeri-pizzeria
- ┣ 📂 images/               # Carpeta para imágenes locales (ej. logo.png)
- ┣ 📜 index.html            # Estructura principal del sitio
- ┣ 📜 styles.css            # Hoja de estilos (Variables, Grid, Flexbox, Responsive)
- ┣ 📜 script.js             # Lógica de negocio, POO, DOM y LocalStorage
- ┗ 📜 README.md             # Documentación del proyecto
+ ┣ 📂 imágenes/             # Carpeta para imágenes locales (ej. logo.png)
+ ┣ 📂 videos/               # Carpeta para los videos del banner principal (Hero)
+ ┣ 📜 LICENCIA              # Archivo de licencia del proyecto
+ ┣ 📜 LÉAME.md              # Documentación del proyecto (este archivo)
+ ┣ 📜 app.js                # Lógica de negocio, POO, DOM y LocalStorage
+ ┣ 📜 índice.html           # Estructura principal del sitio
+ ┗ 📜 estilos.css           # Hoja de estilos (Variables, Grid, Flexbox, Responsive)
