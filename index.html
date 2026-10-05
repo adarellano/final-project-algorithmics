@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500;1,600&family=Pacifico&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,18 +20,18 @@
          ========================================================================== -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">
+            <a href="#menu" class="logo" data-vista="menu">
                 <img src="images/logo.png" alt="Ruggeri Pizzería" class="logo-img">
             </a>
             <nav>
                 <ul>
-                    <li><a href="#menu">Menú</a></li>
-                    <li><a href="#builder">Arma tu pizza</a></li>
-                    <li><a href="#promociones">Promociones</a></li>
+                    <li><a href="#menu" data-vista="menu">Menú</a></li>
+                    <li><a href="#builder" data-vista="builder">Arma tu pizza</a></li>
+                    <li><a href="#promociones" data-vista="promociones">Promociones</a></li>
                     <li>
-                        <a href="#carrito" class="cart-link" aria-label="Ver carrito">
+                        <a href="#payment" class="cart-link" data-vista="payment" aria-label="Ver carrito">
                             <i class="fa-solid fa-cart-shopping"></i>
-                            <span class="cart-badge">1</span>
+                            <span class="cart-badge" id="contador_carrito">0</span>
                         </a>
                     </li>
                 </ul>
@@ -44,25 +44,29 @@
              SECCIÓN 1: HOME / MENÚ
              ========================================================================== -->
         <section id="menu">
-            <div class="hero"></div>
+            <div class="hero">
+                <video class="hero-video" src="videos/banner.mp4" autoplay muted playsinline></video>
+                <video class="hero-video oculto" src="videos/banner1.mp4" muted playsinline preload="metadata"></video>
+                <button type="button" class="hero-flecha hero-flecha--anterior" id="boton_video_anterior" aria-label="Video anterior">‹</button>
+                <button type="button" class="hero-flecha hero-flecha--siguiente" id="boton_video_siguiente" aria-label="Video siguiente">›</button>
+            </div>
             
             <div class="container menu-section">
                 <!-- Filtros -->
                  <div class="filters">
-                    <button class="filter-btn">Pizzas normales</button>
-                    <a href="#builder" class="filter-btn active">Arma tu pizza! ★</a>
-                    <button class="filter-btn">Pizzas</button>
-                    <button class="filter-btn">Bebidas</button>
-                    <button class="filter-btn">Postres</button>
+                    <a href="#pizzas" class="filter-btn">Pizzas normales</a>
+                    <a href="#premium" class="filter-btn">Pizzas premium ★</a>
+                    <a href="#bebidas" class="filter-btn">Bebidas</a>
+                    <a href="#postres" class="filter-btn">Postres</a>
                 </div>
 
                 <!-- Título de sección -->
-                <div class="section-header">
+                <div class="section-header" id="pizzas">
                     <div class="section-title">
                         <h2>Nuestras Pizzas</h2>
-                        <p>Masa madre fermentada 48h, hornos de leña.</p>
+                        <p>Masa madre fermentada 48h, hornos de leña. Toca un precio para agregarlo a tu pedido.</p>
                     </div>
-                    <a href="#" style="font-size: 0.875rem; font-weight: 600; text-decoration: underline;">Ver todo</a>
+                    <a href="#postres" style="font-size: 0.875rem; font-weight: 600; text-decoration: underline;">Ver todo</a>
                 </div>
 
                 <!-- Grilla de Pizzas -->
@@ -73,9 +77,9 @@
                         <div class="pizza-info">
                             <h3>Margherita Clásica</h3>
                             <div class="price-tags">
-                                <span class="price-tag">Mediana $18.50</span>
-                                <span class="price-tag green">Pequeña $12.90</span>
-                                <span class="price-tag">Grande $24.00</span>
+                                <button type="button" class="price-tag">Mediana $18.50</button>
+                                <button type="button" class="price-tag">Pequeña $12.90</button>
+                                <button type="button" class="price-tag">Grande $24.00</button>
                             </div>
                             <p class="pizza-desc">Tomate San Marzano, mozzarella de búfala, albahaca fresca.</p>
                         </div>
@@ -87,9 +91,9 @@
                         <div class="pizza-info">
                             <h3>Quattro Formaggi</h3>
                             <div class="price-tags">
-                                <span class="price-tag">Mediana $18.50</span>
-                                <span class="price-tag green">Pequeña $12.90</span>
-                                <span class="price-tag">Grande $24.00</span>
+                                <button type="button" class="price-tag">Mediana $18.50</button>
+                                <button type="button" class="price-tag">Pequeña $12.90</button>
+                                <button type="button" class="price-tag">Grande $24.00</button>
                             </div>
                             <p class="pizza-desc">Mozzarella, parmesano, gorgonzola y ricotta.</p>
                         </div>
@@ -101,9 +105,9 @@
                         <div class="pizza-info">
                             <h3>Prosciutto e Funghi</h3>
                             <div class="price-tags">
-                                <span class="price-tag">Mediana $18.50</span>
-                                <span class="price-tag green">Pequeña $12.90</span>
-                                <span class="price-tag">Grande $24.00</span>
+                                <button type="button" class="price-tag">Mediana $18.50</button>
+                                <button type="button" class="price-tag">Pequeña $12.90</button>
+                                <button type="button" class="price-tag">Grande $24.00</button>
                             </div>
                             <p class="pizza-desc">Jamón serrano, champiñones, cebolla caramelizada.</p>
                         </div>
@@ -115,9 +119,9 @@
                         <div class="pizza-info">
                             <h3>Carnes</h3>
                             <div class="price-tags">
-                                <span class="price-tag">Mediana $18.50</span>
-                                <span class="price-tag green">Pequeña $12.90</span>
-                                <span class="price-tag">Grande $24.00</span>
+                                <button type="button" class="price-tag">Mediana $18.50</button>
+                                <button type="button" class="price-tag">Pequeña $12.90</button>
+                                <button type="button" class="price-tag">Grande $24.00</button>
                             </div>
                             <p class="pizza-desc">Pepperoni, salchicha, panceta y jamón.</p>
                         </div>
@@ -129,9 +133,9 @@
                         <div class="pizza-info">
                             <h3>Hawaiana</h3>
                             <div class="price-tags">
-                                <span class="price-tag">Mediana $18.50</span>
-                                <span class="price-tag green">Pequeña $12.90</span>
-                                <span class="price-tag">Grande $24.00</span>
+                                <button type="button" class="price-tag">Mediana $18.50</button>
+                                <button type="button" class="price-tag">Pequeña $12.90</button>
+                                <button type="button" class="price-tag">Grande $24.00</button>
                             </div>
                             <p class="pizza-desc">Jamón serrano y piña caramelizada.</p>
                         </div>
@@ -143,82 +147,137 @@
                         <div class="pizza-info">
                             <h3>Vegetariana</h3>
                             <div class="price-tags">
-                                <span class="price-tag">Mediana $18.50</span>
-                                <span class="price-tag green">Pequeña $12.90</span>
-                                <span class="price-tag">Grande $24.00</span>
+                                <button type="button" class="price-tag">Mediana $18.50</button>
+                                <button type="button" class="price-tag">Pequeña $12.90</button>
+                                <button type="button" class="price-tag">Grande $24.00</button>
                             </div>
                             <p class="pizza-desc">Berenjena, calabacín, pimiento rojo y champiñones.</p>
                         </div>
                     </article>
                 </div>
 
+                <!-- Pizzas premium -->
+                <div class="section-header" id="premium" style="margin-top: 3rem;">
+                    <div class="section-title">
+                        <h2>Pizzas Premium ★</h2>
+                        <p>Sabores de autor, con ingredientes que no vas a encontrar en otra pizzería.</p>
+                    </div>
+                </div>
+                <div class="pizza-grid">
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1555072956-7758afb20e8f?w=500&auto=format&fit=crop&q=60" alt="Burrata y Espinaca" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Burrata y Espinaca</h3>
+                            <div class="price-tags">
+                                <button type="button" class="price-tag">Mediana $22.50</button>
+                                <button type="button" class="price-tag">Pequeña $15.90</button>
+                                <button type="button" class="price-tag">Grande $29.00</button>
+                            </div>
+                            <p class="pizza-desc">Burrata cremosa, espinaca salteada al ajo, alcachofas y aceite de oliva.</p>
+                        </div>
+                    </article>
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=500&auto=format&fit=crop&q=60" alt="Diavola con Miel Picante" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Diavola con Miel Picante</h3>
+                            <div class="price-tags">
+                                <button type="button" class="price-tag">Mediana $22.50</button>
+                                <button type="button" class="price-tag">Pequeña $15.90</button>
+                                <button type="button" class="price-tag">Grande $29.00</button>
+                            </div>
+                            <p class="pizza-desc">Doble pepperoni crocante, mozzarella y un hilo de miel con ají.</p>
+                        </div>
+                    </article>
+                    <article class="pizza-card">
+                        <img src="https://images.unsplash.com/photo-1571066811602-716837d681de?w=500&auto=format&fit=crop&q=60" alt="Carbonara al Horno" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Carbonara al Horno</h3>
+                            <div class="price-tags">
+                                <button type="button" class="price-tag">Mediana $22.50</button>
+                                <button type="button" class="price-tag">Pequeña $15.90</button>
+                                <button type="button" class="price-tag">Grande $29.00</button>
+                            </div>
+                            <p class="pizza-desc">Huevo de campo, panceta ahumada, pecorino y aceitunas negras.</p>
+                        </div>
+                    </article>
+                </div>
+
                 <!-- Bebidas -->
-                <div class="section-header" style="margin-top: 3rem;">
+                <div class="section-header" id="bebidas" style="margin-top: 3rem;">
                     <div class="section-title">
                         <h2>Bebidas</h2>
                     </div>
                 </div>
                 <div class="pizza-grid">
                     <article class="pizza-card">
-                        <div class="pizza-img pizza-img--placeholder">💧</div>
+                        <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?w=500&auto=format&fit=crop&q=60" alt="Agua" class="pizza-img">
                         <div class="pizza-info">
                             <h3>Agua</h3>
                             <div class="price-tags">
-                                <span class="price-tag green">$1.50</span>
+                                <button type="button" class="price-tag">$1.50</button>
                             </div>
                         </div>
                     </article>
                     <article class="pizza-card">
-                        <div class="pizza-img pizza-img--placeholder">🥤</div>
+                        <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop&q=60" alt="Coca-Cola" class="pizza-img">
                         <div class="pizza-info">
                             <h3>Coca-Cola</h3>
                             <div class="price-tags">
-                                <span class="price-tag green">$2.00</span>
+                                <button type="button" class="price-tag">$2.00</button>
                             </div>
                         </div>
                     </article>
                     <article class="pizza-card">
-                        <div class="pizza-img pizza-img--placeholder">🥤</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Can_of_Seven_Up.jpg/500px-Can_of_Seven_Up.jpg" alt="7up" class="pizza-img">
                         <div class="pizza-info">
                             <h3>7up</h3>
                             <div class="price-tags">
-                                <span class="price-tag green">$2.00</span>
+                                <button type="button" class="price-tag">$2.00</button>
                             </div>
                         </div>
                     </article>
                 </div>
 
                 <!-- Postres -->
-                <div class="section-header" style="margin-top: 3rem;">
+                <div class="section-header" id="postres" style="margin-top: 3rem;">
                     <div class="section-title">
                         <h2>Postres</h2>
                     </div>
                 </div>
                 <div class="pizza-grid">
                     <article class="pizza-card">
-                        <div class="pizza-img pizza-img--placeholder">🍫</div>
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&auto=format&fit=crop&q=60" alt="Marquesa de chocolate" class="pizza-img">
                         <div class="pizza-info">
                             <h3>Marquesa de chocolate</h3>
                             <div class="price-tags">
-                                <span class="price-tag green">$4.50</span>
+                                <button type="button" class="price-tag">$4.50</button>
                             </div>
                         </div>
                     </article>
                     <article class="pizza-card">
-                        <div class="pizza-img pizza-img--placeholder">🍮</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Quesillo_de_Venezuela_2.jpg/500px-Quesillo_de_Venezuela_2.jpg" alt="Quesillo" class="pizza-img">
                         <div class="pizza-info">
                             <h3>Quesillo</h3>
                             <div class="price-tags">
-                                <span class="price-tag green">$4.00</span>
+                                <button type="button" class="price-tag">$4.00</button>
                             </div>
                         </div>
                     </article>
                     <article class="pizza-card">
-                        <div class="pizza-img pizza-img--placeholder">🍨</div>
+                        <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=500&auto=format&fit=crop&q=60" alt="Brownie con helado" class="pizza-img">
                         <div class="pizza-info">
                             <h3>Brownie con helado</h3>
                             <div class="price-tags">
-                                <span class="price-tag green">$4.50</span>
+                                <button type="button" class="price-tag">$4.50</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="pizza-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Dessertpizza.jpg/500px-Dessertpizza.jpg" alt="Pizza de Nutella" class="pizza-img">
+                        <div class="pizza-info">
+                            <h3>Pizza de Nutella</h3>
+                            <div class="price-tags">
+                                <button type="button" class="price-tag">$6.50</button>
                             </div>
                         </div>
                     </article>
@@ -252,8 +311,8 @@
                                     <span class="option-card-name">No comparto</span>
                                     <span class="option-card-detail">6 porciones · $12.90</span>
                                 </label>
-                                <label class="option-card option-card--selected">
-                                    <input type="radio" name="tamano" checked>
+                                <label class="option-card">
+                                    <input type="radio" name="tamano">
                                     <span class="option-card-name">Te puedo dar un poquito</span>
                                     <span class="option-card-detail">8 porciones · $18.50</span>
                                 </label>
@@ -269,8 +328,8 @@
                             <h3><span class="step-number">2</span> Elige la masa</h3>
                             <p class="step-hint">Todas fermentan 48 horas antes de entrar al horno.</p>
                             <div class="option-row">
-                                <label class="option-card option-card--selected">
-                                    <input type="radio" name="masa" checked>
+                                <label class="option-card">
+                                    <input type="radio" name="masa">
                                     <span class="option-card-name">Masa madre</span>
                                     <span class="option-card-detail">Alveolada y crocante</span>
                                 </label>
@@ -293,8 +352,8 @@
                                 <div>
                                     <p class="step-subtitle">Salsa</p>
                                     <div class="option-row option-row--vertical">
-                                        <label class="option-card option-card--selected">
-                                            <input type="radio" name="salsa" checked>
+                                        <label class="option-card">
+                                            <input type="radio" name="salsa">
                                             <span class="option-card-name">Pomodoro clásico</span>
                                             <span class="option-card-detail">San Marzano y orégano</span>
                                         </label>
@@ -308,8 +367,8 @@
                                 <div>
                                     <p class="step-subtitle">Queso</p>
                                     <div class="option-row option-row--vertical">
-                                        <label class="option-card option-card--selected">
-                                            <input type="radio" name="queso" checked>
+                                        <label class="option-card">
+                                            <input type="radio" name="queso">
                                             <span class="option-card-name">Mozzarella fior di latte</span>
                                             <span class="option-card-detail">Fresca</span>
                                         </label>
@@ -325,11 +384,11 @@
 
                         <section class="step">
                             <h3><span class="step-number">4</span> Suma tus ingredientes</h3>
-                            <p class="step-hint">Elige todos los que quieras. Tienes 3 seleccionados.</p>
+                            <p class="step-hint" id="texto_ingredientes">Elige todos los que quieras. Tienes 0 seleccionados.</p>
                             <div class="ingredient-pills">
-                                <button type="button" class="pill-ingredient pill-ingredient--selected">✓ 🌶️ Pepperoni <span>+$1.20</span></button>
-                                <button type="button" class="pill-ingredient pill-ingredient--selected">✓ 🍄 Champiñones <span>+$0.80</span></button>
-                                <button type="button" class="pill-ingredient pill-ingredient--selected">✓ 🫒 Aceitunas <span>+$0.70</span></button>
+                                <button type="button" class="pill-ingredient">🌶️ Pepperoni <span>+$1.20</span></button>
+                                <button type="button" class="pill-ingredient">🍄 Champiñones <span>+$0.80</span></button>
+                                <button type="button" class="pill-ingredient">🫒 Aceitunas <span>+$0.70</span></button>
                                 <button type="button" class="pill-ingredient">🌿 Albahaca <span>+$0.50</span></button>
                                 <button type="button" class="pill-ingredient">🧅 Cebolla morada <span>+$0.70</span></button>
                                 <button type="button" class="pill-ingredient">🥓 Jamón crudo <span>+$1.60</span></button>
@@ -343,7 +402,7 @@
                     <!-- Columna derecha: la factura, sola -->
                     <aside class="builder-preview">
                         <article class="receipt" id="carrito">
-                            <button class="receipt-close" aria-label="Cerrar">✕</button>
+                            <button type="button" class="receipt-close" id="boton_vaciar" aria-label="Vaciar pedido" title="Vaciar pedido">✕</button>
 
                             <div class="receipt-header">
                                 <span class="receipt-logo">Ruggeri Pizzeria</span>
@@ -351,7 +410,7 @@
 
                             <div class="receipt-meta">
                                 <span class="receipt-order-badge">#Pedido 104</span>
-                                <span>Miércoles, 15 Enero 2025 — 19:42</span>
+                                <span class="fecha_pedido"></span>
                             </div>
 
                             <table class="receipt-table">
@@ -362,37 +421,33 @@
                                         <th class="align-right">Precio</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1x</td>
-                                        <td>🍕 La Ruggeri de Juan (Te puedo dar un poquito)</td>
-                                        <td class="align-right">$18.50</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3x</td>
-                                        <td>Ingredientes extra</td>
-                                        <td class="align-right">$2.70</td>
-                                    </tr>
+                                <tbody id="lista_carrito">
+                                    <!-- app.js escribe aquí los productos del pedido -->
                                 </tbody>
                             </table>
 
                             <div class="receipt-totals">
                                 <div class="receipt-totals-row">
                                     <span>Subtotal</span>
-                                    <span>$21.20</span>
+                                    <span id="subtotal_carrito">$0.00</span>
+                                </div>
+                                <div class="receipt-totals-row">
+                                    <span class="texto_descuento">Descuento</span>
+                                    <span id="descuento_carrito">-$0.00</span>
                                 </div>
                                 <div class="receipt-totals-row">
                                     <span>Costo de envío</span>
-                                    <span>$0.00</span>
+                                    <span id="envio_carrito">$0.00</span>
                                 </div>
                                 <div class="receipt-total-final">
                                     <span>Total a pagar</span>
-                                    <span>$21.20</span>
+                                    <span id="total_carrito">$0.00</span>
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-primary">🛒 Agregar al carrito</button>
-                            <button type="button" class="btn btn-outline">Pagar Pedido</button>
+                            <button type="button" class="btn btn-primary" id="boton_agregar_pizza">🍕 Guardar y armar otra pizza</button>
+                            <p id="mensaje_pizza" class="mensaje-pizza"></p>
+                            <button type="button" class="btn btn-outline" data-vista="payment">Pagar Pedido</button>
                         </article>
                     </aside>
 
@@ -413,57 +468,42 @@
 
                 <div class="payment-layout">
                     <!-- Tarjeta de Recibo -->
-                    <div class="receipt-card">
+                    <article class="receipt-card">
                         <div class="receipt-header">
-                            <h3>Ruggeri Pizzeri</h3>
+                            <h3>Ruggeri Pizzeria</h3>
                             <i class="fa-solid fa-pizza-slice" style="color: var(--color-primary); font-size: 1.5rem;"></i>
                         </div>
                         
                         <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 1.5rem; display: flex; justify-content: space-between;">
-                            <span>PEDIDO #2345</span>
-                            <span>Lunes, 20 de Enero 2025 - 19:42</span>
+                            <span>PEDIDO #104</span>
+                            <span class="fecha_pedido"></span>
                         </div>
 
-                        <div class="receipt-items">
-                            <div class="receipt-item">
-                                <span>1x Pizza Prosciutto e Funghi (Mediana)</span>
-                                <span>$18.500</span>
-                            </div>
-                            <div class="receipt-item">
-                                <span>2x Margherita Clásica (Mediana)</span>
-                                <span>$37.000</span>
-                            </div>
-                            <div class="receipt-item">
-                                <span>1x Quattro Formaggi (Grande)</span>
-                                <span>$24.000</span>
-                            </div>
-                            <div class="receipt-item">
-                                <span>3x Coca-Cola 500ml</span>
-                                <span>$9.000</span>
-                            </div>
-                            <div class="receipt-item">
-                                <span>1x Tiramisú artesanal</span>
-                                <span>$8.500</span>
-                            </div>
+                        <div class="receipt-items" id="lista_factura">
+                            <!-- app.js escribe aquí los productos del pedido -->
                         </div>
 
                         <div class="receipt-totals">
                             <div class="receipt-row">
                                 <span>Subtotal</span>
-                                <span>$97.000</span>
+                                <span id="subtotal_factura">$0.00</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="texto_descuento">Descuento</span>
+                                <span id="descuento_factura">-$0.00</span>
                             </div>
                             <div class="receipt-row">
                                 <span>Costo de envío</span>
-                                <span>$1.500</span>
+                                <span id="envio_factura">$0.00</span>
                             </div>
                             <div class="receipt-row total">
                                 <span>Total a pagar</span>
-                                <span>$97.000</span>
+                                <span id="total_factura">$0.00</span>
                             </div>
                         </div>
 
-                        <button class="btn btn-primary" style="width: 100%;">Pagar Pedido</button>
-                    </div>
+                        <button type="button" class="btn btn-primary" id="boton_imprimir" style="width: 100%;"><i class="fa-solid fa-print"></i> Imprimir factura</button>
+                    </article>
 
                     <!-- Área de Subida de Comprobante -->
                     <div class="upload-area">
@@ -473,12 +513,15 @@
                         <div style="border: 1px dashed var(--color-border); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; background: #F9F9F9;">
                             <span style="font-size: 0.875rem;">Arrastrá el archivo aquí</span><br>
                             <span style="font-size: 0.75rem; color: var(--color-text-muted);">o</span><br>
-                            <button class="btn btn-outline" style="margin-top: 0.5rem; font-size: 0.75rem; padding: 0.5rem 1rem;">Seleccionar archivo</button>
+                            <button type="button" class="btn btn-outline" id="boton_seleccionar_archivo" style="margin-top: 0.5rem; font-size: 0.75rem; padding: 0.5rem 1rem;">Seleccionar archivo</button>
+                            <input type="file" id="archivo_comprobante" accept="image/*,.pdf" class="oculto">
                         </div>
                         <div style="display: flex; align-items: center; gap: 0.5rem; justify-content: center; font-size: 0.75rem; color: var(--color-secondary); margin-bottom: 1.5rem;">
-                            <i class="fa-solid fa-circle-check"></i> comprobante-ruggeri.pdf
+                            <span id="nombre_archivo">Ningún archivo seleccionado</span>
                         </div>
-                        <button class="btn btn-secondary" style="width: 100%;"><i class="fa-solid fa-circle-check"></i> Confirmar pago</button>
+                        <img id="foto_comprobante" class="foto-comprobante oculto" alt="Comprobante de pago">
+                        <button type="button" class="btn btn-secondary" id="boton_confirmar_pago" style="width: 100%;"><i class="fa-solid fa-circle-check"></i> Confirmar pago</button>
+                        <p id="mensaje_pago" class="mensaje-pago"></p>
                     </div>
                 </div>
             </div>
@@ -492,12 +535,12 @@
 
                 <div class="promo-hero">
                     <div>
-                        <span class="promo-eyebrow">🍕 Para comer más rico</span>
+                        <span class="promo-eyebrow"><i class="fa-solid fa-pizza-slice"></i> Para comer más rico</span>
                         <h1>Promos que dan hambre.</h1>
                         <p>Tres excusas para pedir tu Ruggeri favorita, compartir la mesa y volver por otra porción.</p>
                     </div>
                     <div class="promo-hero-card">
-                        <span class="promo-hero-card-icon">🍕</span>
+                        <span class="promo-hero-card-icon"><i class="fa-solid fa-pizza-slice"></i></span>
                         <p>Masa madre · 48h<br>Horno de leña</p>
                     </div>
                 </div>
@@ -515,40 +558,50 @@
                     <!-- Promo 1 -->
                     <article class="promo-card promo-card--brown">
                         <div class="promo-card-content">
-                            <span class="promo-tag">Lunes • Miércoles</span>
+                            <span class="promo-tag promo-tag--yellow"><i class="fa-solid fa-calendar-days"></i> Lunes + Miércoles</span>
                             <h3>Lunes y miércoles: pizzas al 50%</h3>
                             <p>Mitad de precio, doble alegría. Elegí cualquier pizza de nuestra carta y hacé más linda la semana.</p>
-                            <a href="#menu" class="promo-btn">Ver pizzas →</a>
+                            <div class="promo-card-footer">
+                                <a href="#menu" class="promo-btn" data-vista="menu">Ver pizzas <i class="fa-solid fa-arrow-right"></i></a>
+                                <small class="promo-note">Válida en salón y retiro. No acumulable con otras promociones.</small>
+                            </div>
                         </div>
                         <div class="promo-card-media">
-                            <div class="promo-img-placeholder">🍕</div>
+                            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=900&auto=format&fit=crop&q=70" alt="Pizza margherita recién horneada" class="promo-img">
                             <span class="promo-badge-circle">50%<br>OFF</span>
                         </div>
                     </article>
 
                     <!-- Promo 2 -->
-                    <article class="promo-card promo-card--green promo-card--reverse">
-                        <div class="promo-card-media">
-                            <div class="promo-img-placeholder">🍕🍕</div>
+                    <article class="promo-card promo-card--green">
+                        <div class="promo-card-media promo-card-media--doble">
+                            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=900&auto=format&fit=crop&q=70" alt="Pizza de pepperoni" class="promo-img">
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900&auto=format&fit=crop&q=70" alt="Pizza clásica" class="promo-img">
                             <span class="promo-tag-on-media">Dos son mejor que una</span>
                         </div>
                         <div class="promo-card-content">
-                            <span class="promo-tag promo-tag--dark">Solo los martes</span>
-                            <h3>Martes 2x1</h3>
+                            <span class="promo-tag promo-tag--green"><i class="fa-solid fa-star"></i> Sólo los martes</span>
+                            <h3 class="promo-title-big">Martes 2×1</h3>
                             <p>Pedí dos pizzas del mismo tamaño y pagá una. La segunda puede ser tan distinta como tu antojo.</p>
-                            <a href="#menu" class="promo-btn promo-btn--dark">Elegir dos pizzas →</a>
+                            <div class="promo-card-footer">
+                                <a href="#menu" class="promo-btn promo-btn--brown" data-vista="menu">Elegir dos pizzas <i class="fa-solid fa-arrow-right"></i></a>
+                                <small class="promo-note">Se abona la de mayor valor. Válida en salón y retiro.</small>
+                            </div>
                         </div>
                     </article>
 
                     <!-- Promo 3 -->
                     <article class="promo-card promo-card--yellow">
                         <div class="promo-card-content">
-                            <span class="promo-tag">Club Ruggeri</span>
+                            <span class="promo-tag promo-tag--brown"><i class="fa-regular fa-heart"></i> Club Ruggeri</span>
                             <h3>Comprá 10 veces con nosotros y recibí un cupón de $5 de descuento</h3>
                             <p>Cada pedido suma un sello. Cuando completás la tarjeta, te mandamos el cupón para tu próxima pizza.</p>
-                            <a href="#" class="promo-btn">Sumarme al club →</a>
+                            <div class="promo-card-footer">
+                                <button type="button" class="promo-btn promo-btn--green" id="boton_descargar_tarjeta">Descargar la tarjeta del club <i class="fa-solid fa-download"></i></button>
+                                <small class="promo-note">Un sello por compra. Cupón personal, válido por 30 días.</small>
+                            </div>
                         </div>
-                        <div class="promo-card-media">
+                        <div class="promo-card-media promo-card-media--tarjeta">
                             <div class="loyalty-card">
                                 <div class="loyalty-card-header">
                                     <span class="receipt-logo">Ruggeri</span>
@@ -556,17 +609,18 @@
                                 </div>
                                 <p class="loyalty-card-sub">Club de la pizza</p>
                                 <div class="loyalty-stamps">
-                                    <span class="stamp stamp--filled">🍕</span>
-                                    <span class="stamp stamp--filled">🍕</span>
-                                    <span class="stamp stamp--filled">🍕</span>
-                                    <span class="stamp stamp--filled">🍕</span>
-                                    <span class="stamp stamp--filled">🍕</span>
-                                    <span class="stamp stamp--filled">🍕</span>
-                                    <span class="stamp stamp--filled">🍕</span>
+                                    <span class="stamp stamp--filled"><i class="fa-solid fa-pizza-slice"></i></span>
+                                    <span class="stamp stamp--filled"><i class="fa-solid fa-pizza-slice"></i></span>
+                                    <span class="stamp stamp--filled"><i class="fa-solid fa-pizza-slice"></i></span>
+                                    <span class="stamp stamp--filled"><i class="fa-solid fa-pizza-slice"></i></span>
+                                    <span class="stamp stamp--filled"><i class="fa-solid fa-pizza-slice"></i></span>
+                                    <span class="stamp stamp--filled"><i class="fa-solid fa-pizza-slice"></i></span>
+                                    <span class="stamp stamp--filled"><i class="fa-solid fa-pizza-slice"></i></span>
                                     <span class="stamp">8</span>
                                     <span class="stamp">9</span>
                                     <span class="stamp">10</span>
                                 </div>
+                                <p class="loyalty-card-note">¡Ya tenés 7! Te faltan sólo 3 visitas.</p>
                             </div>
                         </div>
                     </article>
@@ -612,5 +666,9 @@
         </div>
     </footer>
 
+    <!-- Mensajito que sale abajo al agregar algo al pedido -->
+    <p id="aviso" class="aviso oculto"></p>
+
+    <script src="app.js"></script>
 </body>
 </html>
