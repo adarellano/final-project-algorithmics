@@ -5,8 +5,7 @@
 ## 🚀 Demo en Vivo
 
 Puedes ver el proyecto desplegado y funcionando en el siguiente enlace:
-👉 **[Ver Proyecto en Vercel](https://tu-enlace-de-vercel.vercel.app)** *(Reemplazar con el enlace real que les dio Vercel)*
-
+👉 **[Ver Proyecto en Vercel](https://ruggeri-pizzeria.vercel.app/#premium)** 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
