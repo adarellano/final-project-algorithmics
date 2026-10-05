@@ -2,33 +2,34 @@
 
 ¡Bienvenidos al repositorio oficial del proyecto final para la pizzería **Ruggeri**! Este es un sitio web interactivo, responsivo y dinámico que permite a los usuarios explorar el menú, armar su propia pizza personalizada, gestionar un carrito de compras con persistencia de datos y subir comprobantes de pago.
 
-🚀 Demo en Vivo
+## 🚀 Demo en Vivo
 
 Puedes ver el proyecto desplegado y funcionando en el siguiente enlace:
 👉 **[Ver Proyecto en Vercel](https://ruggeri-pizzeria.vercel.app/#premium)** 
 
 ---
 
-🛠️ Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
 Este proyecto fue construido utilizando tecnologías web estándar, sin frameworks externos, demostrando un dominio sólido de los fundamentos del desarrollo Front-End:
 
-*   **HTML:** Estructura semántica del sitio (`<header>`, `<main>`, `<section>`, `<footer>`, `<article>`).
-*   **CSS:** 
+*   **HTML5:** Estructura semántica del sitio (`<header>`, `<main>`, `<section>`, `<footer>`, `<article>`).
+*   **CSS3:** 
     *   Uso de **Variables CSS** (`:root`) para una paleta de colores coherente.
     *   **Flexbox** y **CSS Grid** para maquetación avanzada y responsiva.
     *   **Media Queries** para adaptabilidad a dispositivos móviles y tablets.
     *   **Animaciones y transiciones** suaves (hover effects, scroll-behavior).
-*   **JavaScript:**
+*   **JavaScript (Vanilla ES6+):**
     *   **Programación Orientada a Objetos (POO):** Uso de clases (`Producto`, `Pizza`, `Pedido`) para modelar la lógica del negocio.
     *   **Manipulación del DOM:** Interactividad completa (filtros, selección de ingredientes, actualización de precios en tiempo real).
     *   **LocalStorage:** Persistencia del carrito de compras para que no se pierda al recargar la página.
     *   **Canvas API:** Generación dinámica de imágenes (descarga de la tarjeta de fidelidad del "Club Ruggeri").
+    *   **Multimedia:** Carrusel de videos dinámico en la sección principal (Hero).
 *   **Herramientas:** Git, GitHub, GitHub Desktop y Vercel (Despliegue).
 
 ---
 
-✨ Componentes e Integraciones Principales
+## ✨ Componentes e Integraciones Principales
 
 El proyecto está dividido en varias secciones interactivas:
 
@@ -52,7 +53,7 @@ El proyecto está dividido en varias secciones interactivas:
 
 ---
 
-📁 Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 El código está organizado de la siguiente manera para mantener un código limpio y escalable:
 
