@@ -84,6 +84,16 @@ button {
     transition: var(--transition);
 }
 
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Las vistas que no se están viendo (app.js pone y quita esta clase) */
+.oculto {
+    display: none !important;
+}
+
 .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-text-light);
@@ -157,8 +167,13 @@ nav a {
     color: var(--color-text-dark);
 }
 
-nav a:hover {
+nav a:hover,
+nav a.activo {
     color: var(--color-primary);
+}
+
+nav a.activo {
+    font-weight: 700;
 }
 
 .cart-link {
@@ -190,10 +205,46 @@ nav a:hover {
     width: 100%;
     height: 50vh;
     min-height: 400px;
-    background-image: url('https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
+    background-color: var(--color-text-dark);
     position: relative;
+    overflow: hidden;
+}
+
+/* Carrusel de videos del banner, en blanco y negro */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.hero-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-dark);
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.hero-flecha:hover {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.hero-flecha--anterior {
+    left: 1rem;
+}
+
+.hero-flecha--siguiente {
+    right: 1rem;
 }
 
 .menu-section {
@@ -237,6 +288,7 @@ nav a:hover {
 }
 
 .section-header {
+    scroll-margin-top: 90px; /* para que el header fijo no tape el título */
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -321,6 +373,15 @@ nav a:hover {
 .price-tag.green {
     background-color: var(--color-secondary);
     color: white;
+}
+
+.price-tag:hover {
+    background-color: #D9F99D;
+    transform: scale(1.08);
+}
+
+.price-tag.green:hover {
+    background-color: var(--color-secondary-hover);
 }
 
 .pizza-desc {
@@ -507,6 +568,15 @@ nav a:hover {
     gap: 0.4rem;
 }
 
+.pill-ingredient:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.pill-ingredient--selected::before {
+    content: '✓';
+}
+
 .pill-ingredient span {
     color: var(--color-text-muted);
     font-weight: 600;
@@ -573,14 +643,31 @@ nav a:hover {
     cursor: pointer;
 }
 
+.mensaje-pizza {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.receipt-close:hover {
+    background-color: var(--color-text-dark);
+    color: white;
+}
+
+.receipt-table small,
+.receipt-item small {
+    color: var(--color-text-muted);
+}
+
 .receipt .receipt-header {
     margin-bottom: 0.6rem;
 }
 
 .receipt-logo {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 600;
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
     font-size: 1.4rem;
 }
 
@@ -782,6 +869,19 @@ nav a:hover {
     margin-bottom: 1rem;
 }
 
+.foto-comprobante {
+    max-height: 260px;
+    margin: 0 auto 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+}
+
+.upload-area .mensaje-pago {
+    margin: 1rem 0 0;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
 /* ==========================================================================
    6b. SECCIÓN PROMOCIONES
    ========================================================================== */
@@ -836,6 +936,7 @@ nav a:hover {
 }
 
 .promo-hero-card-icon {
+    color: var(--color-primary);
     font-size: 1.8rem;
     display: block;
     margin-bottom: 0.4rem;
@@ -863,187 +964,308 @@ nav a:hover {
 
 .promo-card {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: 1.35fr 1fr;
     border-radius: 1.25rem;
     overflow: hidden;
     align-items: stretch;
+    min-height: 300px;
+    box-shadow: var(--shadow-md);
 }
 
 .promo-card-content {
+    position: relative;
+    overflow: hidden;
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.8rem;
+    gap: 0.9rem;
     justify-content: center;
+}
+
+/* El texto va por encima de los adornos de fondo */
+.promo-card-content > * {
+    position: relative;
+    z-index: 1;
 }
 
 .promo-card-content h3 {
     font-family: var(--font-headings);
-    font-size: 1.6rem;
-    line-height: 1.25;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.promo-card-content h3.promo-title-big {
+    font-size: 3.2rem;
+}
+
+.promo-card-content p {
+    font-size: 0.9rem;
+    max-width: 460px;
 }
 
 .promo-tag {
-    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     border-radius: 9999px;
     padding: 0.3rem 0.9rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
 }
 
-.promo-tag--dark {
-    background-color: rgba(0, 0, 0, 0.1);
+.promo-tag--yellow {
+    background-color: #F5C842;
     color: var(--color-text-dark);
+}
+
+.promo-tag--green {
+    background-color: var(--color-secondary-hover);
+    color: white;
+}
+
+.promo-tag--brown {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Botón a la izquierda y la letra pequeña a la derecha */
+.promo-card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.promo-note {
+    max-width: 210px;
+    text-align: right;
+    font-size: 0.65rem;
+    line-height: 1.4;
+    opacity: 0.75;
 }
 
 .promo-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.6rem;
+    flex-shrink: 0;
     background-color: white;
     color: var(--color-text-dark);
     border-radius: 9999px;
-    padding: 0.7rem 1.4rem;
+    padding: 0.8rem 1.5rem;
     font-weight: 700;
     font-size: 0.85rem;
-    margin-top: 0.5rem;
+    transition: var(--transition);
 }
 
-.promo-btn--dark {
-    background-color: var(--color-text-dark);
+.promo-btn--brown {
+    background-color: var(--color-primary);
     color: white;
 }
 
-.promo-card-media {
-    position: relative;
+.promo-btn--green {
+    background-color: var(--color-secondary);
+    color: white;
 }
 
-.promo-img-placeholder {
+.promo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.promo-btn--brown:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.promo-btn--green:hover {
+    background-color: var(--color-secondary-hover);
+}
+
+/* Lado de la foto */
+.promo-card-media {
+    position: relative;
+    display: flex;
+    min-height: 260px;
+}
+
+.promo-img {
+    flex: 1;
+    min-width: 0;
     width: 100%;
     height: 100%;
-    min-height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    background-color: rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Promo 2: dos fotos, una al lado de la otra */
+.promo-card-media--doble .promo-img {
+    width: 50%;
+}
+
+.promo-card-media--doble .promo-img + .promo-img {
+    left: 50%;
 }
 
 .promo-badge-circle {
     position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
-    background-color: #FBBF24;
-    color: var(--color-text-dark);
-    width: 64px;
-    height: 64px;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: #F5C842;
+    color: var(--color-primary-hover);
+    border: 2px solid var(--color-primary-hover);
+    width: 84px;
+    height: 84px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    font-size: 0.7rem;
-    font-weight: 800;
-    line-height: 1.1;
+    font-family: var(--font-headings);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.05;
     text-align: center;
+    transform: rotate(8deg);
 }
 
 .promo-tag-on-media {
     position: absolute;
-    top: 1.2rem;
+    top: 1.5rem;
     left: 1.2rem;
     background-color: white;
+    border: 2px solid var(--color-text-dark);
     border-radius: 9999px;
     padding: 0.35rem 0.9rem;
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
+    transform: rotate(-6deg);
 }
 
 /* Colores por tarjeta */
 .promo-card--brown {
-    background-color: var(--color-primary);
+    background-color: #7A3B1E;
     color: white;
 }
 
+/* Adornos de la tarjeta marrón: un aro abajo y una franja amarilla arriba */
+.promo-card--brown .promo-card-content::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    bottom: -90px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 22px solid rgba(255, 255, 255, 0.12);
+}
+
+.promo-card--brown .promo-card-content::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 5rem;
+    width: 16px;
+    height: 120px;
+    background-color: #F5C842;
+    transform: rotate(25deg);
+}
+
 .promo-card--green {
-    background-color: #D9F99D;
+    grid-template-columns: 1fr 1.35fr;
+    background-color: #D9EC6E;
     color: var(--color-text-dark);
 }
 
 .promo-card--yellow {
-    background-color: #FDE68A;
+    background-color: #F5C842;
     color: var(--color-text-dark);
-}
-
-.promo-card--reverse {
-    direction: rtl;
-}
-
-.promo-card--reverse > * {
-    direction: ltr;
+    border-left: 14px solid #E8502A;
 }
 
 /* Tarjeta de fidelidad (promo 3) */
+.promo-card-media--tarjeta {
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
 .loyalty-card {
-    background: white;
+    background: #FFFBF0;
+    border: 2px solid var(--color-text-dark);
     border-radius: 1rem;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.18);
     padding: 1.5rem;
-    width: 90%;
-    max-width: 320px;
+    width: 100%;
+    max-width: 340px;
+    transform: rotate(3deg);
 }
 
 .loyalty-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.2rem;
 }
 
 .loyalty-card-header .receipt-logo {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    color: var(--color-primary);
 }
 
 .loyalty-badge {
-    background-color: #FBBF24;
-    color: var(--color-text-dark);
-    font-size: 0.75rem;
-    font-weight: 800;
-    padding: 0.2rem 0.6rem;
-    border-radius: 9999px;
+    color: var(--color-primary);
+    font-family: var(--font-headings);
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .loyalty-card-sub {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
     margin-bottom: 1rem;
 }
 
 .loyalty-stamps {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 
 .stamp {
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 1.5px dashed var(--color-border);
+    border: 1.5px solid #D6D3C4;
+    background-color: #EFEDE2;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
+    font-weight: 700;
     color: var(--color-text-muted);
 }
 
 .stamp--filled {
     background-color: var(--color-primary);
-    border-style: solid;
     border-color: var(--color-primary);
+    color: #F5923A;
+    font-size: 1rem;
+}
+
+.loyalty-card-note {
+    margin-top: 1rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-align: center;
 }
 
 @media (max-width: 900px) {
@@ -1054,14 +1276,23 @@ nav a:hover {
     .promo-hero-card {
         transform: none;
     }
-    .promo-card {
+    .promo-card,
+    .promo-card--green {
         grid-template-columns: 1fr;
-    }
-    .promo-card--reverse {
-        direction: ltr;
     }
     .promo-card-content {
         padding: 2rem;
+    }
+    .promo-card-content h3.promo-title-big {
+        font-size: 2.4rem;
+    }
+    .promo-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .promo-note {
+        text-align: left;
+        max-width: none;
     }
 }
 
@@ -1129,6 +1360,10 @@ footer {
     color: white;
 }
 
+.social-links a:hover {
+    text-decoration: underline;
+}
+
 /* ==========================================================================
    8. MEDIA QUERIES (Responsive)
    ========================================================================== */
@@ -1146,8 +1381,14 @@ footer {
 }
 
 @media (max-width: 768px) {
-    nav {
-        display: none; /* En un proyecto real, aquí iría un menú hamburguesa */
+    /* El nav bar es la única forma de cambiar de vista: en el teléfono baja a otra línea */
+    .header-content {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+    }
+    nav ul {
+        gap: 1.2rem;
     }
     .hero {
         height: 30vh;
@@ -1167,4 +1408,65 @@ footer {
         gap: 1rem;
         text-align: center;
     }
+}
+
+/* ==========================================================================
+   8b. AVISO Y BOTÓN DE QUITAR
+   ========================================================================== */
+.aviso {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background-color: var(--color-secondary);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.7rem 1.4rem;
+    border-radius: 9999px;
+    box-shadow: var(--shadow-lg);
+}
+
+.boton_quitar {
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.6rem;
+    line-height: 1;
+}
+
+.boton_quitar:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* ==========================================================================
+   9. IMPRIMIR FACTURA (solo sale la factura en el papel)
+   ========================================================================== */
+@media print {
+    header,
+    footer,
+    .payment-header,
+    .upload-area,
+    .btn,
+    .boton_quitar,
+    .aviso {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   10. LETRA DEL LOGO (todos los lugares donde dice Ruggeri como marca)
+   ========================================================================== */
+.receipt-logo,
+.receipt-header h3,
+.footer-brand h3 {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
