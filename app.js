@@ -30,6 +30,14 @@ class Pizza extends Producto {
     }
 }
 
+// Una bebida es un producto que además tiene medida (250 ml, 500 ml, 1 L)
+class Bebida extends Producto {
+    constructor(nombre, medida, precio) {
+        super(nombre + ' (' + medida + ')', precio);
+        this.medida = medida;
+    }
+}
+
 // El pedido guarda todos los productos y hace las cuentas
 class Pedido {
     constructor() {
@@ -237,8 +245,12 @@ function leer_del_menu(boton_precio) {
     const precio = leer_precio(boton_precio.textContent);
     const tamano = boton_precio.textContent.split('$')[0].trim();
 
+    // Los postres no tienen tamaño; las bebidas van por mililitros; lo demás son pizzas
     if (tamano === '') {
         return new Producto(nombre, precio);
+    }
+    if (tarjeta.closest('.bebidas') !== null) {
+        return new Bebida(nombre, tamano, precio);
     }
     return new Pizza(nombre, tamano, precio);
 }
@@ -529,7 +541,9 @@ function cargar_pedido() {
     const datos = JSON.parse(guardado);
     for (const dato of datos) {
         let producto;
-        if (dato.tamano === undefined) {
+        if (dato.medida !== undefined) {
+            producto = new Bebida(dato.nombre, dato.medida, dato.precio);
+        } else if (dato.tamano === undefined) {
             producto = new Producto(dato.nombre, dato.precio);
         } else {
             producto = new Pizza(dato.nombre, dato.tamano, dato.precio);
@@ -537,6 +551,23 @@ function cargar_pedido() {
         Object.assign(producto, dato);
         pedido.productos.push(producto);
     }
+}
+
+// El número de pedido empieza en 1 y sube uno con cada pago confirmado.
+// No se guarda: al recargar la página vuelve a empezar en 1.
+let numero_pedido = 1;
+
+function mostrar_numero_pedido() {
+    const lugares = document.querySelectorAll('.numero_pedido');
+    for (const lugar of lugares) {
+        lugar.textContent = numero_pedido;
+    }
+}
+
+function siguiente_pedido() {
+    numero_pedido = numero_pedido + 1;
+    mostrar_numero_pedido();
+    mostrar_fecha();
 }
 
 function mostrar_fecha() {
@@ -591,9 +622,12 @@ function confirmar_pago() {
         mensaje_pago.textContent = 'Falta subir la captura de tu pago.';
     } else {
         // 1. Mostrar mensaje de éxito
-        mensaje_pago.textContent = '¡Pago recibido! Tu pedido de ' +
+        mensaje_pago.textContent = '¡Pago recibido! Tu pedido #' + numero_pedido + ' de ' +
             escribir_precio(pedido.calcular_total()) + ' ya está en el horno. 🍕';
-        
+
+        // El próximo pedido lleva el número siguiente
+        siguiente_pedido();
+
         // 2. Vaciar el pedido y limpiar la interfaz
         pedido.vaciar();
         limpiar_pizza(); // Esto limpia el armador de pizzas y actualiza la factura
@@ -693,6 +727,7 @@ actualizar_promociones();
 
 mostrar_vista('menu');
 mostrar_fecha();
+mostrar_numero_pedido();
 cargar_pedido();
 mostrar_factura();
 actualizar_pizza();
