@@ -322,6 +322,11 @@ nav a.activo {
     color: white;
 }
 
+/* Los postres se agregan tocando cualquier parte de la tarjeta */
+.postres .pizza-card {
+    cursor: pointer;
+}
+
 .pizza-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
